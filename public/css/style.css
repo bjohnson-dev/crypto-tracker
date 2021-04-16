@@ -1,0 +1,389 @@
+:root {
+    --app-color: #1b1d1c;
+    --appbar-color: #292829;
+    --appBarHeaderHeight: 50px;
+    --appBarFooterHeight: 30px;
+
+    --shadow-color-market: rgba(50, 49, 54, .5);
+    --shadow-color-profit: rgba(50, 49, 54, .75);
+    
+    --denominator2Col: 1.92600;
+    --denominator3Col: 2.85550;
+    --denominator4Col: 3.79665;
+}
+
+* {
+    color: #fff;
+    font-family: 'Ramabhadra', sans-serif;
+    font-weight:300;
+}
+
+html { overflow-x: hidden;}
+body {
+    background-color: var(--app-color);
+    color: #fff;
+    margin: calc(var(--appBarHeaderHeight) + 25px) 0 calc(var(--appBarFooterHeight) + 25px) 0;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: var(--appbar-color);
+    position: fixed;
+    top: 0;
+    height: var(--appBarHeaderHeight);
+    width: 100%;
+    z-index: 2;
+}
+
+footer {
+    background-color: var(--appbar-color);
+    position: fixed;
+    bottom: 0;
+    height: var(--appBarFooterHeight);
+    width: 100%;
+    z-index: 2;
+}
+
+main {
+    overflow-y: hidden;
+    position: relative;
+    z-index: 1;
+}
+p { margin:0; }
+
+.grid {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: .75rem;
+    height: 100%;
+    width: 100%;
+    padding: 0 .75rem;
+    position: relative;
+    z-index: 1;
+}
+
+.asset { 
+    background-color: #999;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    padding: 27vw 0 0 0;
+    position: relative;
+    min-height: 35vw;
+}
+.asset .background { z-index: 0; }
+.asset .foreground { z-index: 1; }
+
+.asset h1.currency {
+    position: absolute; bottom: 5vw; left: 3vw;
+    margin: 0;
+    text-transform: uppercase;
+}
+.asset h1.currency span:nth-of-type(1) {
+    display: block;
+    font-size: 3.5vw;
+    letter-spacing: .10vw;
+    line-height: 3.5vw;
+    text-shadow: .090em .015em 0 var(--shadow-color-market);
+}
+.asset h1.currency span:nth-of-type(2) {
+    display: block;
+    font-size: 20vw;
+    letter-spacing: 0;
+    line-height: 20vw;
+    margin-bottom: 4vw;
+    padding-bottom: 1.5vw;
+    text-shadow: .020em .015em 0 var(--shadow-color-market);
+}
+
+.asset span.gain-loss {
+    font-size: 2.6vw;
+    font-weight: 200;
+    letter-spacing: .10vw;
+    line-height: 2vw;
+    opacity: 1;
+    position: absolute; top: 25%; left: 0;
+    transform: scale(1) translateX(-130%);
+}
+
+.asset span.price {
+    color: #fff;
+    font-size: 6vw;
+    line-height: 6vw;
+    margin: 0;
+    position: absolute; bottom: 1vw; right: 3vw;
+    text-transform: uppercase;
+}
+
+.asset span.purchase-value {
+    color: #909090;
+    font-size: 8vw;
+    position: absolute; top: -3vw; left: 1vw;
+}
+
+.asset span.quantity {
+    color: #929292;
+    font-size: 23vw;
+    line-height: 23vw;
+    margin: 0;
+    position: absolute; bottom: -3vw; right: -1vw;
+    text-transform: uppercase;
+}
+
+
+
+/******   2 column grid   ******/
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    .asset {
+        padding: calc(27vw / var(--denominator2Col) ) 0 0 0; 
+        min-height: calc(35vw / var(--denominator2Col) );
+    }
+
+    .asset h1.currency {
+        position: absolute; bottom: calc(5vw / var(--denominator2Col) ); left: calc(3vw / var(--denominator2Col) );
+    }
+    .asset h1.currency span:nth-of-type(1) {
+        font-size: calc(3.5vw / var(--denominator2Col) );
+        line-height: calc(3.5vw / var(--denominator2Col) );
+    }
+    .asset h1.currency span:nth-of-type(2) {
+        font-size: calc(20vw / var(--denominator2Col) );
+        line-height: calc(20vw / var(--denominator2Col) );
+        margin-bottom: calc(4vw / var(--denominator2Col) );
+        padding-bottom: calc(1.5vw / var(--denominator2Col) );
+    }
+
+    .asset span.gain-loss {
+        font-size: calc(2.6vw / var(--denominator2Col) );
+        line-height: calc(2vw / var(--denominator2Col) );
+        letter-spacing: .03vw;
+        position: absolute; top: 25%; left: 0;
+    }
+
+    .asset span.price {
+        font-size: calc(6vw / var(--denominator2Col) );
+        line-height: calc(6vw / var(--denominator2Col) );
+        position: absolute; bottom: calc(1vw / var(--denominator2Col) ); right: calc(3vw / var(--denominator2Col) );
+    }
+
+    .asset span.purchase-value {
+        font-size: calc(8vw / var(--denominator2Col) );
+        position: absolute; top: calc(-3vw / var(--denominator2Col) ); left: calc(1vw / var(--denominator2Col) );
+    }
+
+    .asset span.quantity {
+        font-size: calc(24vw / var(--denominator2Col) );
+        line-height: calc(24vw / var(--denominator2Col) );
+        position: absolute; bottom: calc(-3vw / var(--denominator2Col) ); right: calc(-1vw / var(--denominator2Col) );
+    }
+}
+
+
+
+/******   3 column grid (no scroll hybrid - no scroll on 4K)   ******/
+@media (min-width: 1400px) {
+    body { margin: calc(var(--appBarHeaderHeight)) 0 calc(var(--appBarFooterHeight)) 0; }
+    main { 
+        height: calc(100vh - (var(--appBarHeaderHeight) + var(--appBarFooterHeight)));
+        overflow-y: visible;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .asset {
+        padding: calc(27vw / var(--denominator3Col) ) 0 0 0; 
+        min-height: calc(35vw / var(--denominator3Col) );
+    }
+
+    .asset h1.currency {
+        position: absolute; bottom: calc(5vw / var(--denominator3Col) ); left: calc(3vw / var(--denominator3Col) );
+    }
+    .asset h1.currency span:nth-of-type(1) {
+        font-size: calc(3.5vw / var(--denominator3Col) );
+        line-height: calc(3.5vw / var(--denominator3Col) );
+    }
+    .asset h1.currency span:nth-of-type(2) {
+        font-size: calc(20vw / var(--denominator3Col) );
+        line-height: calc(20vw / var(--denominator3Col) );
+        margin-bottom: calc(4vw / var(--denominator3Col) );
+        padding-bottom: calc(1.5vw / var(--denominator3Col) );
+    }
+
+    .asset span.gain-loss {
+        font-size: calc(2.6vw / var(--denominator3Col) );
+        line-height: calc(2vw / var(--denominator3Col) );
+        letter-spacing: 0;
+        position: absolute; top: 25%; left: 0;
+    }
+
+    .asset span.price {
+        font-size: calc(6vw / var(--denominator3Col) );
+        line-height: calc(6vw / var(--denominator3Col) );
+        position: absolute; bottom: calc(1vw / var(--denominator3Col) ); right: calc(3vw / var(--denominator3Col) );
+    }
+
+    .asset span.purchase-value {
+        font-size: calc(8vw / var(--denominator3Col) );
+        position: absolute; top: calc(-3vw / var(--denominator3Col) ); left: calc(1vw / var(--denominator3Col) );
+    }
+
+    .asset span.quantity {
+        font-size: calc(24vw / var(--denominator3Col) );
+        line-height: calc(18.25vw / var(--denominator3Col) );
+        overflow-y: hidden;
+        position: absolute; bottom: calc(7vw / var(--denominator3Col) ); right: calc(-1vw / var(--denominator3Col) );
+        transform: translateY(2.60vw);
+    }
+}
+
+
+
+/******   4 column grid (no scroll)  ******/
+@media (min-width: 1900px) {
+    html, body { overflow-y: hidden;}
+    body { margin: 0 0 0 0; }
+    header { position: static; }
+    footer { position: static; }
+
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    .asset { padding: 2vw .5vw 0 1.5vw; }
+
+    .asset h1.currency {
+        position: absolute; bottom: calc(5vw / var(--denominator4Col) ); left: calc(3vw / var(--denominator4Col) );
+    }
+    .asset h1.currency span:nth-of-type(1) {
+        font-size: calc(3.5vw / var(--denominator4Col) );
+        line-height: calc(3.5vw / var(--denominator4Col) );
+    }
+    .asset h1.currency span:nth-of-type(2) {
+        font-size: calc(18vw / var(--denominator4Col) );
+        line-height: calc(16vw / var(--denominator4Col) );
+        margin-bottom: calc(4vw / var(--denominator4Col) );
+        padding-bottom: calc(1.5vw / var(--denominator4Col) );
+    }
+
+    .asset span.gain-loss {
+        font-size: calc(2.6vw / var(--denominator4Col) );
+        line-height: calc(2vw / var(--denominator4Col) );
+        letter-spacing: 0;
+        position: absolute; top: 25%; left: 0;
+    }
+
+    .asset span.price {
+        font-size: calc(6vw / var(--denominator4Col) );
+        line-height: calc(6vw / var(--denominator4Col) );
+        position: absolute; bottom: calc(1vw / var(--denominator4Col) ); right: calc(3vw / var(--denominator4Col) );
+    }
+
+    .asset span.purchase-value {
+        font-size: calc(8vw / var(--denominator4Col) );
+        position: absolute; top: calc(-3vw / var(--denominator4Col) ); left: calc(1vw / var(--denominator4Col) );
+    }
+
+    .asset span.quantity {
+        font-size: calc(24vw / var(--denominator4Col) );
+        line-height: calc(24vw / var(--denominator4Col) );
+        position: absolute; bottom: calc(-3vw / var(--denominator4Col) ); right: calc(-1vw / var(--denominator4Col) );
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 2900px) {
+    .grid {
+        grid-gap: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+
+
+/******   header   ******/
+header > :only-child {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+header > :only-child > :nth-child(1) {
+    display: none;
+    font-size: .75rem;
+    padding: 0 2.5rem;
+}
+header > :only-child > :nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+}
+header .total-valuation > :nth-child(1){
+    margin-right: .5rem;
+}
+
+header .total-valuation > :nth-child(2),
+header .total-investment > :nth-child(2),
+header .total-profit > :nth-child(2) {
+    display: none;
+}
+
+header .total-valuation > :nth-child(3),
+header .total-investment > :nth-child(3),
+header .total-profit > :nth-child(3) {
+    display: none;
+}
+
+@media (min-width: 576px){
+    header .total-valuation > :nth-child(1),
+    header .total-investment > :nth-child(1),
+    header .total-profit > :nth-child(1) {
+        display: none;
+    }
+
+    header .total-valuation > :nth-child(2),
+    header .total-investment > :nth-child(2),
+    header .total-profit > :nth-child(2) {
+        display: inline;
+        margin-right: .5rem;
+    }
+}
+
+@media (min-width: 768px){
+    header > :only-child > :nth-child(1) { display: block; }
+}
+
+@media (min-width: 992px) {
+    header .total-valuation > :nth-child(2),
+    header .total-investment > :nth-child(2),
+    header .total-profit > :nth-child(2) {
+        display: none;
+    } 
+
+    header .total-valuation > :nth-child(3),
+    header .total-investment > :nth-child(3),
+    header .total-profit > :nth-child(3) {
+        display: inline;
+        margin-right: .5rem;
+    }
+}
+
+
+
+/******   footer   ******/
+footer { font-size: 1rem }
+footer .ticker-slide { background-color: #555; margin: 0 3rem; width: 200px; }
+footer .ticker-slide > :nth-child(1) { background-color: #444; display: inline-block; margin-right: .75rem; text-align: center; width: 100px;  }

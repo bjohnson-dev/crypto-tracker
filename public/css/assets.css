@@ -1,0 +1,82 @@
+:root {
+    --massive-gain: rgb(32, 83, 42); /* #20532a */
+    --major-gain: rgb(73, 122, 74); /* #497a4a */
+    --minor-gain: rgb(116, 184, 119); /* #74b877 */
+    --break-even: rgb(188, 178, 177); /* #bcb2b1 */
+    --minor-loss: rgb(223, 101, 103); /* #df6567 */
+    --major-loss: rgb(191, 55, 58); /* #bf373a */
+    --massive-loss: rgb(159, 29, 33); /* #9f1d21 */
+
+    --massive-gain-alt: rgb(17, 68, 27); /* #11441b - 6% darkened */
+    --major-gain-alt: rgb(58, 107, 59); /* #3a6b3b - 6% darkened */
+    --minor-gain-alt: rgb(101, 169, 104); /* #65a968 - 6% darkened */
+    --break-even-alt: rgb(173, 163, 162); /* #ada3a2 - 6% darkened */
+    --minor-loss-alt: rgb(208, 86, 88); /* #d05658 - 6% darkened */
+    --major-loss-alt: rgb(176, 40, 43); /* #b0282b - 6% darkened */
+    --massive-loss-alt: rgb(144, 14, 18); /* #900e12 - 6% darkened */
+
+    --neutral: rgb(255, 255, 255); /* #ffffff */
+    --neutral-alt: rgb(239, 239, 239); /* #efefef */
+    --neutral-alt2: rgb(119, 119, 119); /* #777777 */ 
+}
+
+/* *** market styles *** */
+.mkt-name,
+.mkt-ticker,
+.mkt-gain-loss,
+.mkt-price {
+    color: #fff;
+}
+
+.mkt-asset-massive-gain { background-color: var(--massive-gain); }
+.mkt-asset-major-gain { background-color: var(--major-gain); }
+.mkt-asset-minor-gain { background-color: var(--minor-gain); }
+.mkt-asset-break-even { background-color: var(--break-even); }
+.mkt-asset-minor-loss { background-color: var(--minor-loss); }
+.mkt-asset-major-loss { background-color: var(--major-loss); }
+.mkt-asset-massive-loss { background-color: var(--massive-loss); }
+
+.mkt-purchase-value-massive-gain { color: var(--massive-gain-alt)!important; }
+.mkt-purchase-value-major-gain { color: var(--major-gain-alt)!important; }
+.mkt-purchase-value-minor-gain { color: var(--minor-gain-alt)!important; }
+.mkt-purchase-value-break-even { color: var(--break-even-alt)!important; }
+.mkt-purchase-value-minor-loss { color: var(--minor-loss-alt)!important; }
+.mkt-purchase-value-major-loss { color: var(--major-loss-alt)!important; }
+.mkt-purchase-value-massive-loss { color: var(--massive-loss-alt)!important; }
+
+.mkt-quantity-massive-gain { color: var(--massive-gain-alt)!important; }
+.mkt-quantity-major-gain { color: var(--major-gain-alt)!important; }
+.mkt-quantity-minor-gain { color: var(--minor-gain-alt)!important; }
+.mkt-quantity-break-even { color: var(--break-even-alt)!important; }
+.mkt-quantity-minor-loss { color: var(--minor-loss-alt)!important; }
+.mkt-quantity-major-loss { color: var(--major-loss-alt)!important; }
+.mkt-quantity-massive-loss { color: var(--massive-loss-alt)!important; }
+
+
+
+/* *** profit styles *** */
+.pft-name-gain,
+.pft-ticker-gain,
+.pft-gain-loss-gain {
+    color: var(--minor-gain)!important;
+}
+
+.pft-name-even,
+.pft-ticker-even,
+.pft-gain-loss-even {
+    color: var(--break-even)!important;
+}
+
+.pft-name-loss,
+.pft-ticker-loss,
+.pft-gain-loss-loss {
+    color: var(--minor-loss)!important;
+}
+
+.pft-asset { background-color: var(--neutral); }
+.pft-price { color: var(--neutral-alt2)!important; }
+
+.pft-purchase-value,
+.pft-quantity {
+    color: var(--neutral-alt)!important;
+}
